@@ -6,7 +6,7 @@
 #    By: afelicia <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/22 17:08:26 by afelicia          #+#    #+#              #
-#    Updated: 2023/03/05 21:31:58 by afelicia         ###   ########.fr        #
+#    Updated: 2023/03/05 22:13:25 by afelicia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,13 +63,16 @@ RESET = \033[0m
 
 ###################################################################
 
+#compiles both the MLX42 lib and the program
+all: ${LIBFT} ${NAME}
+
 ${LIBFT}:
 		@make -sC ${LIB_PATH}
 		
 #Compiles the program by linking the object files with the libraries and outputting an ex file
 ${NAME}: ${OBJS}
 		@printf "${LCYAN}Making $@${RESET}"
-		${CC} ${CFLAGS} ${HEADERS} -o ${NAME} ${LIBFT} ${OBJS} ${LFLAGS}
+		${CC} ${CFLAGS} -o ${NAME} ${OBJS} ${LIBFT} ${HEADERS} ${LFLAGS}
 		@printf "${GREEN}✨Complete✨${RESET}"
 
 #Defines a rule for generating object files 
@@ -78,20 +81,17 @@ ${NAME}: ${OBJS}
 
 #Removes all objects files
 clean:
-	@${RM} ${OBJS}
+	@rm -rf ${OBJS}
 	@make clean -C ${LIB_PATH}
 	@printf "${LGREEN}Objects cleaned from ${WHITE}${CURDIR}${RESET}"
 
-#compiles both the MLX42 lib and the program
-all: ${LIBFT} ${NAME}
-
-#calls the 'clear' rule also removes executable file
+#calls the 'clean' rule also removes executable file
 fclean: clean
 	${RM} ${NAME}
 	${RM} ${LIB_PATH}${LIB_NAME}
 	@printf "${LRED}Binary ${LYELLOW}${NAME} ${LRED}has been deleted${RESET}"
 
-#removes all and compiles MLX and program
+#removes all and compiles program
 re: fclean all
 
 #Defines a list of targets that do not correspond to files(make will always 
