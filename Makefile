@@ -6,7 +6,7 @@
 #    By: afelicia <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/22 17:08:26 by afelicia          #+#    #+#              #
-#    Updated: 2023/03/05 22:13:25 by afelicia         ###   ########.fr        #
+#    Updated: 2023/03/06 14:56:52 by afelicia         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,7 +63,7 @@ RESET = \033[0m
 
 ###################################################################
 
-#compiles both the MLX42 lib and the program
+#compiles both the lib and the program
 all: ${LIBFT} ${NAME}
 
 ${LIBFT}:
@@ -71,7 +71,7 @@ ${LIBFT}:
 		
 #Compiles the program by linking the object files with the libraries and outputting an ex file
 ${NAME}: ${OBJS}
-		@printf "${LCYAN}Making $@${RESET}"
+		@printf "${LCYAN}Making......$@${RESET}"
 		${CC} ${CFLAGS} -o ${NAME} ${OBJS} ${LIBFT} ${HEADERS} ${LFLAGS}
 		@printf "${GREEN}✨Complete✨${RESET}"
 
@@ -81,7 +81,7 @@ ${NAME}: ${OBJS}
 
 #Removes all objects files
 clean:
-	@rm -rf ${OBJS}
+	@rm -fr ${OBJS}
 	@make clean -C ${LIB_PATH}
 	@printf "${LGREEN}Objects cleaned from ${WHITE}${CURDIR}${RESET}"
 
@@ -89,7 +89,7 @@ clean:
 fclean: clean
 	${RM} ${NAME}
 	${RM} ${LIB_PATH}${LIB_NAME}
-	@printf "${LRED}Binary ${LYELLOW}${NAME} ${LRED}has been deleted${RESET}"
+	@printf "${LRED}Binary ${LYELLOW}${NAME} ${LRED}has been deleted....${RESET}"
 
 #removes all and compiles program
 re: fclean all
