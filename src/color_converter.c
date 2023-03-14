@@ -6,7 +6,7 @@
 /*   By: afelicia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 17:16:20 by afelicia          #+#    #+#             */
-/*   Updated: 2023/03/14 16:21:20 by afelicia         ###   ########.fr       */
+/*   Updated: 2023/03/14 18:19:28 by afelicia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,11 @@ int	color_converter(const char *str)
     color |= (int)(g * 255) << 8;
     color |= (int)(r * 255) << 16;
     return (color);
-}*/
+}
 
 int	main()
 {
 	char *str = "FF2E00";
 	int	result = color_converter(str);
 	printf("%d", result);
-}
+}*/
