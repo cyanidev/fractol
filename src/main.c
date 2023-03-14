@@ -6,11 +6,18 @@
 /*   By: afelicia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 19:47:05 by afelicia          #+#    #+#             */
-/*   Updated: 2023/03/06 17:15:25 by afelicia         ###   ########.fr       */
+/*   Updated: 2023/03/07 15:21:26 by afelicia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <mlx.h>
+#include <stdio.h>
+
+int mouse_event(int buttom, int x, int y, void *param)
+{
+    // Whenever the event is triggered, print the value of button to console.
+    printf("%d", buttom);
+}
 
 int	main(void)
 {
@@ -28,6 +35,10 @@ int	main(void)
 		x++;
 		y++;
 	}
+
+	mlx_mouse_hook(win, &mouse_event, 0);
 	
 	mlx_loop(mlx);
 }
+
+
