@@ -6,7 +6,7 @@
 /*   By: afelicia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 17:16:20 by afelicia          #+#    #+#             */
-/*   Updated: 2023/03/07 14:37:10 by afelicia         ###   ########.fr       */
+/*   Updated: 2023/03/14 16:21:20 by afelicia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,15 @@ int	color_converter(const char *str)
 	}
 	return (result);
 }
+
+/*int rgb_to_int(double r, double g, double b)
+{
+    int color = 0;
+    color |= (int)(b * 255);
+    color |= (int)(g * 255) << 8;
+    color |= (int)(r * 255) << 16;
+    return (color);
+}*/
 
 int	main()
 {
